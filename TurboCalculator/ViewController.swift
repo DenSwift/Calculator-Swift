@@ -20,9 +20,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         settingForAllButtons()
-        
     }
     
+    // UI settings for all buttons on screen
     private func settingForAllButtons() {
         settingsForAllButtons.forEach({ button in
             button.layer.cornerRadius = 38
@@ -31,45 +31,75 @@ class ViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func numbersButtons(_ sender: UIButton) {
-        
-            if resultLabel.text!.count < 15 {
-                if sender.tag == 0 {
-                    number += "0"
-                } else if sender.tag == 1 {
-                    number += "1"
-                } else if sender.tag == 2 {
-                    number += "2"
-                } else if sender.tag == 3 {
-                    number += "3"
-                } else if sender.tag == 4 {
-                    number += "4"
-                } else if sender.tag == 5 {
-                    number += "5"
-                } else if sender.tag == 6 {
-                    number += "6"
-                } else if sender.tag == 7 {
-                    number += "7"
-                } else if sender.tag == 8 {
-                    number += "8"
-                } else if sender.tag == 9 {
-                    number += "9"
+       
+        if resultLabel.text!.count < 15 {
+            if sender.tag == 0 {
+                if number.first == "0" {
+                    number.removeFirst()
                 }
-                
-                resultLabel.text = number
-            } else {
-                let alert = UIAlertController(title: "Ошибка", message: "Вы ввели слишком большое число!", preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default)
-                alert.addAction(action)
-                self.present(alert, animated: true)
+                number += "0"
+            } else if sender.tag == 1 {
+                if number.first == "0" {
+                    number.removeFirst()
+                }
+                number += "1"
+            } else if sender.tag == 2 {
+                if number.first == "0" {
+                    number.removeFirst()
+                }
+                number += "2"
+            } else if sender.tag == 3 {
+                if number.first == "0" {
+                    number.removeFirst()
+                }
+                number += "3"
+            } else if sender.tag == 4 {
+                if number.first == "0" {
+                    number.removeFirst()
+                }
+                number += "4"
+            } else if sender.tag == 5 {
+                if number.first == "0" {
+                    number.removeFirst()
+                }
+                number += "5"
+            } else if sender.tag == 6 {
+                if number.first == "0" {
+                    number.removeFirst()
+                }
+                number += "6"
+            } else if sender.tag == 7 {
+                if number.first == "0" {
+                    number.removeFirst()
+                }
+                number += "7"
+            } else if sender.tag == 8 {
+                if number.first == "0" {
+                    number.removeFirst()
+                }
+                number += "8"
+            } else if sender.tag == 9 {
+                if number.first == "0" {
+                    number.removeFirst()
+                }
+                number += "9"
             }
+            
+            resultLabel.text = number
+        } else {
+            let alert = UIAlertController(title: "Ошибка", message: "Вы ввели слишком большое число!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        }
     }
     
     @IBAction func deleteLastNumber(_ sender: UIButton) {
-       
+        
         if number != "" {
             number.removeLast()
-        } else if number == "" {
-            let alert = UIAlertController(title: "Ошибка", message: "Введите цыфры!", preferredStyle: .alert)
+        } else if number.count == 0 {
+            let alert = UIAlertController(title: "Ошибка", message: "Введите цифры!", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default) { _ in
                 self.resultLabel.text = "0"
             }
@@ -78,7 +108,6 @@ class ViewController: UIViewController {
         }
         
         resultLabel.text = number
-        resultButton.titleLabel?.text = number
     }
     
     @IBAction func deleteAll(_ sender: UIButton) {
@@ -88,11 +117,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func floatNumberButton(_ sender: UIButton) {
-       
-        if resultLabel.text != "" {
-            number += "."
-           
-        }
+        number += "."
         resultLabel.text = number
     }
     
@@ -115,7 +140,10 @@ class ViewController: UIViewController {
     @IBAction func operations(_ sender: UIButton) {
         
         if sender.tag == 10 {
-            if validInput() {
+            if number == "" {
+                number = "0"
+            }
+            if validInput() && validInputForMinus() {
                 let checkedWorkingsForPercent = number.replacingOccurrences(of: "%", with: "*0.01")
                 let expression = NSExpression(format: checkedWorkingsForPercent)
                 let result = expression.expressionValue(with: nil, context: nil) as! Double
@@ -123,7 +151,7 @@ class ViewController: UIViewController {
                 currentResult = resultString
                 resultButton.titleLabel?.text = resultString
             } else {
-                let alert = UIAlertController(title: "Ошибка", message: "Введены некоректные данные", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Ошибка", message: "Неправильно введенные символы", preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .default) { _ in
                     self.number = ""
                     self.resultLabel.text = "0"
@@ -169,6 +197,13 @@ class ViewController: UIViewController {
         return true
     }
     
+    func validInputForMinus() -> Bool {
+        if number.last == "-" {
+            return false
+        }
+        return true
+    }
+    
     func specialCharacter(char: Character) -> Bool {
         if char == "*" {
             return true
@@ -178,7 +213,7 @@ class ViewController: UIViewController {
             return true
         } else if char == "." {
             return true
-        } 
+        }
         return false
     }
     
@@ -186,13 +221,17 @@ class ViewController: UIViewController {
         number = number + value
         resultLabel.text = number
     }
-
+    
     func formatResult(result: Double) -> String {
         if result.truncatingRemainder(dividingBy: 1) == 0 {
+            if result == 0 {
+                resultLabel.text = "Не определено"
+            }
             return String(format: "%.0f", result)
         } else {
             return String(format: "%.2f", result)
         }
     }
 }
+
 
