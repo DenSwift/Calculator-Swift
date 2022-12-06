@@ -144,7 +144,7 @@ class ViewController: UIViewController {
             if number == "" {
                 number = "0"
             }
-            if validInput() && validInputForMinus() {
+            if validInput() && validInputForMinus() && validInputForPercent() {
                 let checkedWorkingsForPercent = number.replacingOccurrences(of: "%", with: "*0.01")
                 let expression = NSExpression(format: checkedWorkingsForPercent)
                 let result = expression.expressionValue(with: nil, context: nil) as! Double
@@ -171,6 +171,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: Functions
     func validInput() -> Bool {
         var count = 0
         var charIndexes = [Int]()
@@ -200,6 +201,19 @@ class ViewController: UIViewController {
     
     func validInputForMinus() -> Bool {
         if number.last == "-" {
+            return false
+        }
+        return true
+    }
+    
+    func validInputForPercent() -> Bool {
+        if number.contains("%+%") {
+            return false
+        } else if number.contains("%-%") {
+            return false
+        } else if number.contains("%/%") {
+            return false
+        } else if number.contains("%*%") {
             return false
         }
         return true
