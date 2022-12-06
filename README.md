@@ -1,4 +1,4 @@
-# Swift Calculator
+# Calculator-Swift
 A simple calculator written on Swift (Storyboard)
 
 Cases in which a CRASH will happen ‼️
