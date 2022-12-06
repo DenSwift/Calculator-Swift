@@ -140,6 +140,7 @@ class ViewController: UIViewController {
     @IBAction func operations(_ sender: UIButton) {
         
         if sender.tag == 10 {
+            devisionOnZero()
             if number == "" {
                 number = "0"
             }
@@ -222,11 +223,20 @@ class ViewController: UIViewController {
         resultLabel.text = number
     }
     
+    func devisionOnZero() {
+        if number.contains("/0") {
+            let alert = UIAlertController(title: "Ошибка", message: "На ноль делить нельзя!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default) { _ in
+                self.number = ""
+                self.resultLabel.text = "0"
+            }
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        }
+    }
+    
     func formatResult(result: Double) -> String {
         if result.truncatingRemainder(dividingBy: 1) == 0 {
-            if result == 0 {
-                resultLabel.text = "Не определено"
-            }
             return String(format: "%.0f", result)
         } else {
             return String(format: "%.2f", result)
