@@ -2,9 +2,7 @@
 
 A simple calculator written on Swift (Storyboard)
 
-Case in which a CRASH will happen ‼️
 
- <img width="155" alt="Снимок экрана 2022-12-05 в 20 51 15" src="https://user-images.githubusercontent.com/114521805/205730900-83f2bd2b-57af-4023-aec3-09cb86b56add.png">
 
 Other errors are also possible ‼️
  
