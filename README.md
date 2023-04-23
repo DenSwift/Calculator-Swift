@@ -1,5 +1,5 @@
 # Calculator-Swift
-A simple calculator have written on Swift (Storyboard)
+A simple calculator written on Swift (Storyboard)
 
 
 
