@@ -13,7 +13,20 @@
 		0501C70B293B61C90073A10F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0501C709293B61C90073A10F /* Main.storyboard */; };
 		0501C70D293B61CB0073A10F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0501C70C293B61CB0073A10F /* Assets.xcassets */; };
 		0501C710293B61CB0073A10F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0501C70E293B61CB0073A10F /* LaunchScreen.storyboard */; };
+		ED2DB6942AAB19B9009282E4 /* TurboCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DB6932AAB19B9009282E4 /* TurboCalculatorUITests.swift */; };
+		ED2DB6962AAB19B9009282E4 /* TurboCalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DB6952AAB19B9009282E4 /* TurboCalculatorUITestsLaunchTests.swift */; };
+		ED2DB69D2AAB19CC009282E4 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2DB69C2AAB19CC009282E4 /* CalculatorUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED2DB6972AAB19B9009282E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0501C6F8293B61C80073A10F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0501C6FF293B61C80073A10F;
+			remoteInfo = TurboCalculator;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0501C700293B61C90073A10F /* TurboCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurboCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +37,21 @@
 		0501C70C293B61CB0073A10F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0501C70F293B61CB0073A10F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0501C711293B61CB0073A10F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED2DB6912AAB19B9009282E4 /* TurboCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurboCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED2DB6932AAB19B9009282E4 /* TurboCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurboCalculatorUITests.swift; sourceTree = "<group>"; };
+		ED2DB6952AAB19B9009282E4 /* TurboCalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurboCalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ED2DB69C2AAB19CC009282E4 /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0501C6FD293B61C80073A10F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED2DB68E2AAB19B9009282E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				0501C702293B61C90073A10F /* TurboCalculator */,
+				ED2DB6922AAB19B9009282E4 /* TurboCalculatorUITests */,
 				0501C701293B61C90073A10F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				0501C700293B61C90073A10F /* TurboCalculator.app */,
+				ED2DB6912AAB19B9009282E4 /* TurboCalculatorUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +91,16 @@
 				0501C711293B61CB0073A10F /* Info.plist */,
 			);
 			path = TurboCalculator;
+			sourceTree = "<group>";
+		};
+		ED2DB6922AAB19B9009282E4 /* TurboCalculatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ED2DB6932AAB19B9009282E4 /* TurboCalculatorUITests.swift */,
+				ED2DB6952AAB19B9009282E4 /* TurboCalculatorUITestsLaunchTests.swift */,
+				ED2DB69C2AAB19CC009282E4 /* CalculatorUITests.swift */,
+			);
+			path = TurboCalculatorUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +123,24 @@
 			productReference = 0501C700293B61C90073A10F /* TurboCalculator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		ED2DB6902AAB19B9009282E4 /* TurboCalculatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED2DB69B2AAB19B9009282E4 /* Build configuration list for PBXNativeTarget "TurboCalculatorUITests" */;
+			buildPhases = (
+				ED2DB68D2AAB19B9009282E4 /* Sources */,
+				ED2DB68E2AAB19B9009282E4 /* Frameworks */,
+				ED2DB68F2AAB19B9009282E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED2DB6982AAB19B9009282E4 /* PBXTargetDependency */,
+			);
+			name = TurboCalculatorUITests;
+			productName = TurboCalculatorUITests;
+			productReference = ED2DB6912AAB19B9009282E4 /* TurboCalculatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -94,11 +148,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					0501C6FF293B61C80073A10F = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					ED2DB6902AAB19B9009282E4 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 0501C6FF293B61C80073A10F;
 					};
 				};
 			};
@@ -116,6 +174,7 @@
 			projectRoot = "";
 			targets = (
 				0501C6FF293B61C80073A10F /* TurboCalculator */,
+				ED2DB6902AAB19B9009282E4 /* TurboCalculatorUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +187,13 @@
 				0501C710293B61CB0073A10F /* LaunchScreen.storyboard in Resources */,
 				0501C70D293B61CB0073A10F /* Assets.xcassets in Resources */,
 				0501C70B293B61C90073A10F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED2DB68F2AAB19B9009282E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +210,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED2DB68D2AAB19B9009282E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED2DB6942AAB19B9009282E4 /* TurboCalculatorUITests.swift in Sources */,
+				ED2DB69D2AAB19CC009282E4 /* CalculatorUITests.swift in Sources */,
+				ED2DB6962AAB19B9009282E4 /* TurboCalculatorUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED2DB6982AAB19B9009282E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0501C6FF293B61C80073A10F /* TurboCalculator */;
+			targetProxy = ED2DB6972AAB19B9009282E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0501C709293B61C90073A10F /* Main.storyboard */ = {
@@ -336,6 +420,40 @@
 			};
 			name = Release;
 		};
+		ED2DB6992AAB19B9009282E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = qa.guru.TurboCalculatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TurboCalculator;
+			};
+			name = Debug;
+		};
+		ED2DB69A2AAB19B9009282E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = qa.guru.TurboCalculatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TurboCalculator;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -353,6 +471,15 @@
 			buildConfigurations = (
 				0501C715293B61CB0073A10F /* Debug */,
 				0501C716293B61CB0073A10F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED2DB69B2AAB19B9009282E4 /* Build configuration list for PBXNativeTarget "TurboCalculatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED2DB6992AAB19B9009282E4 /* Debug */,
+				ED2DB69A2AAB19B9009282E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
