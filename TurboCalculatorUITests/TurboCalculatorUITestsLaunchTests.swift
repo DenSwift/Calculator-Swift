@@ -9,24 +9,59 @@ import XCTest
 
 final class TurboCalculatorUITestsLaunchTests: XCTestCase {
 
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
-        true
-    }
+    let app = XCUIApplication()
 
-    override func setUpWithError() throws {
-        continueAfterFailure = false
-    }
+      override func setUpWithError() throws {
+          continueAfterFailure = false
+      }
+      
+      func attachScreenshotToReport() {
+          XCTContext.runActivity(named: "Attach Screenshot to Report") { activity in
+              activity.add(takeFullScreenshot())
+          }
+      }
+      
+      func takeFullScreenshot() -> XCTAttachment {
+          let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+          attachment.lifetime = .keepAlways
+          return attachment
+      }
 
-    func testLaunch() throws {
-        let app = XCUIApplication()
-        app.launch()
+      func testApp() throws {
+          app.launch()
 
-        // Insert steps here to perform after app launch but before taking a screenshot,
-        // such as logging into a test account or navigating somewhere in the app
+          let attachment = XCTAttachment(screenshot: app.screenshot())
+          attachment.name = "Launch Screen"
+          attachment.lifetime = .keepAlways
+          add(attachment)
+          
+          app.buttons["AC"].tap()
+          
+      }
+      
+      func testActivites() throws {
 
-        let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.name = "Launch Screen"
-        attachment.lifetime = .keepAlways
-        add(attachment)
-    }
+          XCTContext.runActivity(named: "Launch App") { activity in
+              app.launch()
+          }
+          
+          XCTContext.runActivity(named: "Launch App") { activity in
+              app.buttons["AC"].tap()
+          }
+          
+      }
+      
+      func testFail() throws {
+          app.launch()
+          XCTFail("Failure from test")
+      }
+      
+      func testExampleTestops() throws {
+          testOpsId(1)
+          
+          step("Запуск приложения") {
+              app.launch()
+          }
+
+      }
 }
